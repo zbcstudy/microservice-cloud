@@ -1,8 +1,5 @@
 spring:
   application:
     name: microservicecloud-config-eureka-client
-  cloud:
-    service-registry:
-      auto-registration:
-        fail-fast: false
+
 
