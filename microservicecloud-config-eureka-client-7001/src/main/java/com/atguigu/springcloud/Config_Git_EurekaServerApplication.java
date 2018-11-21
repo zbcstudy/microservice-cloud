@@ -10,7 +10,7 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
  * @author zhouyang
  */
 @SpringBootApplication
-@EnableEurekaServer
+//@EnableEurekaServer
 public class Config_Git_EurekaServerApplication
 {
 	public static void main(String[] args)
