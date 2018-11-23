@@ -45,6 +45,12 @@ public class WeatherDataServiceImpl implements WeatherDataService{
         return doGetWeather(url);
     }
 
+    @Override
+    public void syncDataByCityId(String cityId) {
+        String url = WEATHER_URL+ "cityKey=" + cityId;
+        saveWeatherData(url);
+    }
+
     private WeatherResponse doGetWeather(String url) {
         String key = url;
         String body = null;
@@ -73,5 +79,17 @@ public class WeatherDataServiceImpl implements WeatherDataService{
             e.printStackTrace();
         }
         return weatherResponse;
+    }
+
+    private void saveWeatherData(String url) {
+        String body = null;
+        //先查询缓存，缓存中有数据，直返回
+        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
+        if (responseEntity.getStatusCodeValue() == 200) {
+            body = responseEntity.getBody();
+        }
+        //将数据放入缓存中
+        ops.set(url,body,TIME_OUT, TimeUnit.SECONDS);
     }
 }

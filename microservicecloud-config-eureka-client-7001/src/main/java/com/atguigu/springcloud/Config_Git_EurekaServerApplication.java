@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 //@EnableEurekaServer
 //@EnableScheduling
-@ImportResource(locations = "classpath:/spring-task.xml")
+//@ImportResource(locations = "classpath:/spring-task.xml")
 public class Config_Git_EurekaServerApplication
 {
 	public static void main(String[] args)

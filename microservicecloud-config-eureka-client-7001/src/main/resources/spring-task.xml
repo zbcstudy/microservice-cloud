@@ -4,14 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
-        <property name="jobClass" value="com.atguigu.springcloud.weather.job.WeatherDataSyncJob"></property>
+        <property name="jobClass" value="com.atguigu.springcloud.weather.job.WeatherDataSyncJob">
+        </property>
         <property name="durability" value="true"></property>
     </bean>
 
     <bean id="simpleTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
         <property name="jobDetail" ref="jobDetail" />
         <property name="startDelay" value="3000" />
-        <property name="repeatInterval" value="2000" />
+        <property name="repeatInterval" value="30000" />
     </bean>
 
     <bean id="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
@@ -22,5 +23,6 @@
             </list>
         </property>
     </bean>
+
 
 </beans>
