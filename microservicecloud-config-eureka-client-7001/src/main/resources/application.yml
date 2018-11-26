@@ -1,3 +1,5 @@
 spring:
-  application:
-    name: microservicecloud-config-eureka-client
+  thymeleaf:
+    cache: false  #热部署静态文件
+#  application:
+#    name: microservicecloud-config-eureka-client

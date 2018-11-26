@@ -74,7 +74,7 @@ public class QuartzConfiguration {
     public SimpleTriggerFactoryBean simpleTriggerFactoryBean() {
         SimpleTriggerFactoryBean simpleTriggerFactoryBean = new SimpleTriggerFactoryBean();
         simpleTriggerFactoryBean.setJobDetail(jobDetailFactoryBean().getObject());
-        simpleTriggerFactoryBean.setRepeatInterval(30000);
+        simpleTriggerFactoryBean.setRepeatInterval(300000);
         return simpleTriggerFactoryBean;
     }
 

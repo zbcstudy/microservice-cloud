@@ -34,7 +34,7 @@ public class WeatherDataServiceImpl implements WeatherDataService{
 
     @Override
     public WeatherResponse getDataByCityId(String cityId) {
-        String url = WEATHER_URL+ "cityKey=" + cityId;
+        String url = WEATHER_URL+ "citykey=" + cityId;
 
         return doGetWeather(url);
     }
