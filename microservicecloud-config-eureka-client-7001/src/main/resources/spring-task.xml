@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
-        <property name="jobClass" value="com.atguigu.springcloud.weather.job.WeatherDataSyncJob">
+        <property name="jobClass" value="com.wondertek.springcloud.weather.job.WeatherDataSyncJob">
         </property>
         <property name="durability" value="true"></property>
     </bean>
