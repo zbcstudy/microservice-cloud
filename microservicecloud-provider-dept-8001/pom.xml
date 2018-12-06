@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.atguigu.springcloud</groupId>
+		<groupId>com.wondertek.springcloud</groupId>
 		<artifactId>microservicecloud</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -13,7 +13,7 @@
 	<dependencies>
 		<!-- 引入自己定义的api通用包，可以使用Dept部门Entity -->
 		<dependency>
-			<groupId>com.atguigu.springcloud</groupId>
+			<groupId>com.wondertek.springcloud</groupId>
 			<artifactId>microservicecloud-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
