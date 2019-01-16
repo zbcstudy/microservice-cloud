@@ -12,7 +12,7 @@
 
 	<dependencies>
 		<dependency><!-- 自己定义的api -->
-			<groupId>com.atguigu.springcloud</groupId>
+			<groupId>com.wondertek.springcloud</groupId>
 			<artifactId>microservicecloud-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>

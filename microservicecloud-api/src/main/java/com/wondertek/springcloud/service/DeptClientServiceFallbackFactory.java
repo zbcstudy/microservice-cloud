@@ -12,8 +12,7 @@ import feign.hystrix.FallbackFactory;
 public class DeptClientServiceFallbackFactory implements FallbackFactory<DeptClientService>
 {
 	@Override
-	public DeptClientService create(Throwable throwable)
-	{
+	public DeptClientService create(Throwable throwable) {
 		return new DeptClientService() {
 			@Override
 			public Dept get(long id)

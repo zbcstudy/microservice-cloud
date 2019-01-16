@@ -44,8 +44,7 @@ public class DeptController
 //	@Autowired
 //	private DiscoveryClient client;
 	@RequestMapping(value = "/dept/discovery", method = RequestMethod.GET)
-	public Object discovery()
-	{
+	public Object discovery() {
 		List<String> list = client.getServices();
 		System.out.println("**********" + list);
 
