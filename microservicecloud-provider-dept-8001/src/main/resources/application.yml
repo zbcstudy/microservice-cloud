@@ -47,6 +47,8 @@ spring:
     username: guest
     password: guest
     virtual-host: /
+    publisher-confirms: true
+    publisher-returns: true
 
 eureka:
   client: #客户端注册进eureka服务列表内

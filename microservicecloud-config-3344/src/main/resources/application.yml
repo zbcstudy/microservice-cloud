@@ -8,6 +8,7 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:zzyybs/microservicecloud-config.git #GitHub上面的git仓库名字
- 
+          uri: https://github.com/zbcstudy/git-test.git #GitHub上面的git仓库名字
+          search-paths: "{application}/{profile}"
+
 
