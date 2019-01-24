@@ -1,5 +1,6 @@
 package com.wondertek.springcloud.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wondertek.springcloud.dao.PersonRepository;
 import com.wondertek.springcloud.entities.Person;
 import com.wondertek.springcloud.entities.User;
@@ -32,17 +33,17 @@ public class PersonServiceImpl implements PersonService {
     private UserService userService;
 
     @Override
-    @Compensable(confirmMethod = "confirmSavePerson",cancelMethod = "cancelSavePerson")
+    @Compensable(confirmMethod = "confirmSavePerson", cancelMethod = "cancelSavePerson")
+    @HystrixCommand(fallbackMethod = "hystrixSavePerson")
     public Map<String, Object> savePerson(Person person) {
         log.info("Service--保存person对象");
         User user = new User();
-        user.setId(2l);
-        user.setName("user02");
-        user.setAddress("user-address-02");
+        user.setId(3l);
+        user.setName("user03");
+        user.setAddress("user-address-03");
         user.setStatus(0);
         Person person1 = personRepository.save(person);
         System.out.println(person1.getId());
-
         log.info("person对象保存成功，开始保存user对象");
         userService.saveUser(user);
         return null;
@@ -50,17 +51,23 @@ public class PersonServiceImpl implements PersonService {
 
     /**
      * 确认操作
+     *
      * @param person
      */
     @Override
-    public void confirmSavePerson(Person person) {
+    public Map<String, Object> confirmSavePerson(Person person) {
         log.info("person confirm doing");
         person.setStatus(1);
         personRepository.save(person);
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("success", false);
+        resultMap.put("message", "save person false by save user error");
+        return resultMap;
     }
 
     /**
      * 异常取消操作
+     *
      * @param person
      */
     @Override
@@ -68,5 +75,13 @@ public class PersonServiceImpl implements PersonService {
         log.info("person cancel doing");
         person.setStatus(0);
         personRepository.save(person);
+    }
+
+    public Map<String, Object> hystrixSavePerson(Person person) {
+        log.info("-----save person error");
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("success", false);
+        resultMap.put("message", "save person false by save user error");
+        return resultMap;
     }
 }

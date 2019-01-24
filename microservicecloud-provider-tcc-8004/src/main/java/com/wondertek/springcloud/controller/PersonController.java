@@ -27,9 +27,9 @@ public class PersonController {
     public Map<String, Object> addPerson() {
         log.info("PersonController---开始保存person");
         Person person = new Person();
-        person.setId(2l);
-        person.setName("person02");
-        person.setAddress("person-address02");
+        person.setId(3l);
+        person.setName("person03");
+        person.setAddress("person-address03");
         person.setStatus(0);
         personService.savePerson(person);
         return null;

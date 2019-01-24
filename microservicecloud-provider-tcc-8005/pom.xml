@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>microservicecloud-provider-tcc-8004</artifactId>
+    <artifactId>microservicecloud-provider-tcc-8005</artifactId>
 
     <dependencies>
         <!-- 引入自己定义的api通用包，可以使用Dept部门Entity -->

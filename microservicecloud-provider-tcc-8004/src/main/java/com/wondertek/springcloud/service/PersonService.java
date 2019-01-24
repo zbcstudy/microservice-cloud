@@ -14,7 +14,7 @@ public interface PersonService {
     @Compensable
     Map<String, Object> savePerson(Person person);
 
-    void confirmSavePerson(Person person);
+    Map<String, Object> confirmSavePerson(Person person);
 
     void cancelSavePerson(Person person);
 }

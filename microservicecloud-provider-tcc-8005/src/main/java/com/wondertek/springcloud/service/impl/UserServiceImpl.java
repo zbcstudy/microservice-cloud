@@ -1,5 +1,6 @@
 package com.wondertek.springcloud.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wondertek.springcloud.dao.UserRepository;
 import com.wondertek.springcloud.entities.User;
 import com.wondertek.springcloud.service.UserService;
@@ -23,10 +24,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Compensable(confirmMethod = "confirmSaveUser",cancelMethod = "cancelSaveUser")
+    @HystrixCommand(fallbackMethod = "")
     public void saveUser(User user) {
         log.info("开始保存user对象");
         user.setStatus(1);
+
         userRepository.save(user);
+        int a = 1 / 0;
     }
 
     @Override
@@ -41,5 +45,10 @@ public class UserServiceImpl implements UserService {
         log.info("cancel user save");
         user.setStatus(0);
         userRepository.save(user);
+    }
+
+    public void hystrixSaveUser() {
+        log.info("hystrix save user error");
+
     }
 }
