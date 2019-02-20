@@ -36,6 +36,9 @@ public class PersonServiceImpl implements PersonService {
     @Compensable(confirmMethod = "confirmSavePerson", cancelMethod = "cancelSavePerson")
     @HystrixCommand(fallbackMethod = "hystrixSavePerson")
     public Map<String, Object> savePerson(Person person) {
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("success", false);
+        resultMap.put("message", "save person false by save user error");
         log.info("Service--保存person对象");
         User user = new User();
         user.setId(3l);
@@ -46,7 +49,7 @@ public class PersonServiceImpl implements PersonService {
         System.out.println(person1.getId());
         log.info("person对象保存成功，开始保存user对象");
         userService.saveUser(user);
-        return null;
+        return resultMap;
     }
 
     /**

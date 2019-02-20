@@ -31,7 +31,7 @@ public class PersonController {
         person.setName("person03");
         person.setAddress("person-address03");
         person.setStatus(0);
-        personService.savePerson(person);
-        return null;
+        Map<String, Object> resultMap = personService.savePerson(person);
+        return resultMap;
     }
 }
