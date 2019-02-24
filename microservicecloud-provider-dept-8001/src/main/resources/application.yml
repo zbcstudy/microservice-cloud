@@ -43,7 +43,7 @@ spring:
                 deadLetterQueueName: inputBinding.product-deadletter-queue #死信队列名字：exchanName.queueName
   rabbitmq:                  # 默认的 mq的配置时候，上述的配置方式，可以支持多个 broker
     port: 5672
-    host: 192.168.115.128
+    host: 127.0.0.1
     username: guest
     password: guest
     virtual-host: /
