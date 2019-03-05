@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>microservicecloud-sharding-jdbc-rw-api</artifactId>
+	<artifactId>microservicecloud-sharding-jdbc-sharding</artifactId>
 
 	<dependencies>
 		<dependency>
@@ -34,9 +34,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.dangdang</groupId>
-			<artifactId>sharding-jdbc-config-spring</artifactId>
-			<version>1.5.4.1</version>
+			<groupId>io.shardingjdbc</groupId>
+			<artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+			<version>2.0.0.M3</version>
 		</dependency>
 
 		<dependency>

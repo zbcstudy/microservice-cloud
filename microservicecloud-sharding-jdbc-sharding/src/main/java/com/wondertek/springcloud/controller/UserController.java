@@ -3,6 +3,7 @@ package com.wondertek.springcloud.controller;
 import com.wondertek.springcloud.domain.User;
 import com.wondertek.springcloud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,10 +19,10 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/add")
-    public String addUser() {
+    @RequestMapping("/add/{id}")
+    public String addUser(@PathVariable(value = "id") Long id) {
         User user = new User();
-        user.setId(1l);
+        user.setId(id);
         user.setCity("上海");
         user.setName("赵必成");
         userService.addUser(user);
