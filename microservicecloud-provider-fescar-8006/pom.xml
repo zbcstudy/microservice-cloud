@@ -10,7 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>microservicecloud-provider-fescar-8006</artifactId>
-
+    <properties>
+        <fescar.version>0.1.3</fescar.version>
+    </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -22,6 +24,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 
     <dependencies>
         <!-- 引入自己定义的api通用包，可以使用Dept部门Entity -->
@@ -97,6 +100,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>com.alibaba.fescar</groupId>-->
+            <!--<artifactId>fescar-all</artifactId>-->
+            <!--<version>${fescar.version}</version>-->
+        <!--</dependency>-->
     </dependencies>
 
 </project>
