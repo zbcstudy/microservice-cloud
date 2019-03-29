@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @EnableFeignClients
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
 public class DeptProviderFescar_8006 {
 
     @Autowired
