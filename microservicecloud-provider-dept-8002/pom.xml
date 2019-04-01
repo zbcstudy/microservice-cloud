@@ -70,6 +70,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
+		<!--sentinel整合-->
+		<dependency>
+		<groupId>com.alibaba.csp</groupId>
+		<artifactId>sentinel-core</artifactId>
+		<version>1.4.1</version>
+	</dependency>
+
+		<dependency>
+			<groupId>com.alibaba.csp</groupId>
+			<artifactId>sentinel-annotation-aspectj</artifactId>
+			<version>1.4.1</version>
+		</dependency>
 	</dependencies>
 
 </project>

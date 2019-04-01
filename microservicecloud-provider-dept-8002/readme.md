@@ -1,0 +1,1 @@
+在使用Jmeter对Sentinel进行测试之后，sentinel的限流操作是可以正常使用的
