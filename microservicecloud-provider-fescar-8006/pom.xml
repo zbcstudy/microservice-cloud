@@ -101,11 +101,11 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba.fescar</groupId>
             <artifactId>fescar-all</artifactId>
             <version>${fescar.version}</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 </project>
