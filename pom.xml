@@ -119,6 +119,7 @@
 		<module>microservicecloud-config-eureka-client-7001</module>
 		<module>microservicecloud-config-dept-client-8001</module>
         <module>microservicecloud-provider-tcc-8004</module>
+		<module>microservicecloud-provider-tcc-8005</module>
 		<module>microservicecloud-sharding-jdbc-rw</module>
 		<module>microservicecloud-sharding-jdbc-sharding</module>
 		<module>microservicecloud-provider-fescar-8006</module>
