@@ -62,7 +62,6 @@ public class AtomicTest {
             System.out.println("atomicStampedReference: " + atomicStampedReference.compareAndSet(100, 120, stamp, stamp + 1));
         });
 
-
         thread3.start();
         thread4.start();
     }
