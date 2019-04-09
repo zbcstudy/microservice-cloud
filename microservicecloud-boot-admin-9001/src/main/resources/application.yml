@@ -1,0 +1,20 @@
+server:
+  port: 9001
+ 
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+#      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: true #访问路径可以显示IP地址
+    status-page-url: http://${spring.cloud.client.ipAddress}:${server.port}
+endpoints:
+  env:
+    sensitive: false  #关闭environment的检查，前段可以直接访问
+spring:
+  application:
+    name: micro-cloud-admin
+
+ 
