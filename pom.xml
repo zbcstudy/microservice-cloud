@@ -123,6 +123,8 @@
 		<module>microservicecloud-sharding-jdbc-rw</module>
 		<module>microservicecloud-sharding-jdbc-sharding</module>
 		<module>microservicecloud-provider-fescar-8006</module>
+		<module>elastic-job-spring-boot-starter</module>
+		<module>microservicecloud-boot-admin-9001</module>
     </modules>
 
 </project>
