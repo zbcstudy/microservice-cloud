@@ -20,6 +20,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-httpclient</artifactId>
+			<version>9.5.0</version>
+		</dependency>
 		<!-- Ribbon相关 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
