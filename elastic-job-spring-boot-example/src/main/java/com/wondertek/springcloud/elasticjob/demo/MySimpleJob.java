@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * Created by win on 2019/4/11.
  */
-@ElasticJobConf(name = "MySimpleJob")
+@ElasticJobConf(name = "MySimpleJob",cron = "0/10 * * * * ?",shardingItemParameters = "0=0,1=1",overwrite = true)
 public class MySimpleJob implements SimpleJob {
 
     private static final Logger log = LoggerFactory.getLogger(MySimpleJob.class);
