@@ -1,0 +1,17 @@
+server: 
+  port: 3350
+  
+spring:
+  application:
+    name:  microservicecloud-config-apollo
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/zbcstudy/git-test.git #GitHub上面的git仓库名字
+#          search-paths: "{application}/{profile}"
+
+App:
+  Id: demo
+apollo:
+  Meta: http://127.0.0.1:8080 #指定dev环境
