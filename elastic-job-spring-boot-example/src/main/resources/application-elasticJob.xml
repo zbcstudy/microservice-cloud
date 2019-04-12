@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:reg="http://www.dangdang.com/schema/ddframe/reg"
+       xmlns:job="http://www.dangdang.com/schema/ddframe/job"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           				   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+           				   http://www.dangdang.com/schema/ddframe/reg
+                           http://www.dangdang.com/schema/ddframe/reg/reg.xsd
+                           http://www.dangdang.com/schema/ddframe/job
+                           http://www.dangdang.com/schema/ddframe/job/job.xsd
+           				   http://www.springframework.org/schema/context
+           	               http://www.springframework.org/schema/context/spring-context-4.3.xsd " default-lazy-init="false">
+
+    <bean id="propertyConfigure" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:application.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <reg:zookeeper id="zookeeperRegCenter" server-lists="${elastic.job.zk.serverLists}"
+                   namespace="${elastic.job.zk.namespace}"
+        base-sleep-time-milliseconds="${elastic.job.baseSleepTimeMilliseconds}"
+        max-sleep-time-milliseconds="${elastic.job.maxSleepTimeMilliseconds}"
+        max-retries="${elastic.job.maxRetries}"
+        session-timeout-milliseconds="${elastic.job.sessionTimeoutMilliseconds}"
+        connection-timeout-milliseconds="${elastic.job.connectionTimeoutMilliseconds}" />
+    
+    <job:simple id="mySimpleJob" registry-center-ref="zookeeperRegCenter" cron="0/10 * * * * ?" sharding-total-count="3"
+                class="com.wondertek.springcloud.elasticjob.demo.MySimpleJob" sharding-item-parameters="0=1,1=2,2=3">
+        <job:listener class="com.wondertek.springcloud.elasticjob.core.MessageElasticJobListener"/>
+    </job:simple>
+
+
+</beans>

@@ -23,7 +23,7 @@ public class MySimpleJob implements SimpleJob {
         String shardingParameter = shardingContext.getShardingParameter();
         log.info("【MySimpleJob】分片参数：" + shardingParameter);
         int value = Integer.parseInt(shardingParameter);
-        for (int i = 0; i < 1000000; i++) {
+        for (int i = 0; i < 1000; i++) {
             if (i % 2 == value) {
                 String time = new SimpleDateFormat("HH:mm:ss").format(new Date());
                 System.out.println(time + ":开始执行简单任务" + i);
