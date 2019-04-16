@@ -21,6 +21,11 @@ spring:
       initial-size: 5
       max-total: 5
       max-wait-millis: 200
+   zipkin:
+     base-url: http://127.0.0.1:9000
+   sleuth:
+     sampler:
+       percentage: 1.0
       
 eureka:
   client: #客户端注册进eureka服务列表内
