@@ -127,6 +127,7 @@
 		<module>elastic-job-spring-boot-example</module>
 		<module>microservicecloud-boot-admin-9001</module>
 		<module>microservicecloud-config-apollo-3350</module>
+		<module>zipkin-server-9000</module>
     </modules>
 
 </project>
