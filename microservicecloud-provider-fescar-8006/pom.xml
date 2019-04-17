@@ -101,11 +101,13 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
-        <!--<dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba.fescar/fescar-spring -->
+        <dependency>
             <groupId>com.alibaba.fescar</groupId>
-            <artifactId>fescar-all</artifactId>
-            <version>${fescar.version}</version>
-        </dependency>-->
+            <artifactId>fescar-spring</artifactId>
+            <version>0.1.4</version>
+        </dependency>
+
     </dependencies>
 
 </project>
