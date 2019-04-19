@@ -2,7 +2,7 @@ package com.wondertek.springcloud.config;
 
 import com.wondertek.springcloud.security.JwtAuthenticationEntryPoint;
 import com.wondertek.springcloud.security.JwtAuthorizationFilter;
-import com.wondertek.springcloud.security.service.JwtUserDetailService;
+import com.wondertek.springcloud.security.service.JwtUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -33,12 +33,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
     @Autowired
-    private JwtUserDetailService jwtUserDetailService;
+    private JwtUserDetailsService jwtUserDetailsService;
 
     @Autowired
     private JwtAuthorizationFilter jwtAuthorizationFilter;
 
-    @Value("${jwt.tokenHeader}")
+    @Value("${jwt.header}")
     private String tokenHeader;
 
     @Value("${jwt.route.authentication.path}")
@@ -46,7 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(jwtUserDetailService)
+        auth.userDetailsService(jwtUserDetailsService)
                 .passwordEncoder(passwordEncoderBean());
     }
 
