@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by win on 2019/4/19.
  */
-@Service("jwtUserDetailService")
+@Service("jwtUserDetailsService")
 public class JwtUserDetailService implements UserDetailsService {
 
     @Autowired
