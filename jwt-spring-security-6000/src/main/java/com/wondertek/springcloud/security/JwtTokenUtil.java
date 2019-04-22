@@ -1,9 +1,6 @@
 package com.wondertek.springcloud.security;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Clock;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import io.jsonwebtoken.impl.DefaultClock;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +10,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 
 /**
@@ -21,8 +20,13 @@ import java.util.function.Function;
 @Component
 public class JwtTokenUtil implements Serializable {
 
-    static final String CLAIM_KEY_USERNAME = "sub";
-    static final String CLAIM_KEY_CREATED = "iat";
+    public static final String ROLE_REFRESH_TOKEN = "ROLE_REFRESH_TOKEN";
+
+    static final String CLAIM_KEY_USER_ID = "user_id";
+    static final String CLAIM_KEY_AUTHORITIES = "scope";
+
+    //save token
+    private Map<String, String> tokenMap = new ConcurrentHashMap<>();
 
     private Clock clock = DefaultClock.INSTANCE;
 
@@ -30,7 +34,12 @@ public class JwtTokenUtil implements Serializable {
     private String secret;
 
     @Value("${jwt.expiration}")
-    private Long expiration;
+    private Long access_token_expiration;
+
+    @Value("${jwt.expiration}")
+    private Long refresh_token_expiration;
+
+    private final SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS256;
 
     public String getUserNameFromToken(String token) {
         return getClaimFromToken(token, Claims::getSubject);
@@ -86,8 +95,10 @@ public class JwtTokenUtil implements Serializable {
         return Jwts.builder()
                 .setClaims(claims)
                 .setSubject(username)
+                .setId(UUID.randomUUID().toString().replace("_",""))
                 .setIssuedAt(createDate)
                 .setExpiration(expirationDate)
+                .compressWith(CompressionCodecs.DEFLATE)
                 .signWith(SignatureAlgorithm.ES512, secret)
                 .compact();
     }
@@ -119,7 +130,22 @@ public class JwtTokenUtil implements Serializable {
     }
 
     private Date calculateExpirationDate(Date createDate) {
-        return new Date(createDate.getTime() + expiration * 1000);
+        return new Date(createDate.getTime() + access_token_expiration * 1000);
+    }
+
+    public void putToken(String userName, String token) {
+        tokenMap.put(userName, token);
+    }
+
+    public void deleteToken(String userName) {
+        tokenMap.remove(userName);
+    }
+
+    public boolean containToken(String userName,String token) {
+        if (userName != null && tokenMap.containsKey(userName) && tokenMap.get(userName).equals(token)) {
+            return true;
+        }
+        return false;
     }
 
 }

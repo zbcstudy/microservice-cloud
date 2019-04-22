@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.Serializable;
 
 /**
+ * 认证失败处理类
  * Created by win on 2019/4/19.
  */
 @Component
