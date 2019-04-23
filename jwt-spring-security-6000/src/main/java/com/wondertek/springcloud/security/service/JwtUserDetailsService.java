@@ -20,13 +20,13 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
-
-    public JwtUserDetailsService() {
-        //this.passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();  //默认使用 bcrypt， strength=10
-        this.passwordEncoder = new BCryptPasswordEncoder();
-    }
+//    @Autowired
+//    PasswordEncoder passwordEncoder;
+//
+//    public JwtUserDetailsService() {
+//        //this.passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();  //默认使用 bcrypt， strength=10
+//        this.passwordEncoder = new BCryptPasswordEncoder();
+//    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
