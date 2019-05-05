@@ -129,6 +129,7 @@
 		<module>microservicecloud-config-apollo-3350</module>
 		<module>zipkin-server-9000</module>
 		<module>jwt-spring-security-6000</module>
+		<module>microservicecloud-sample-test</module>
     </modules>
 
 </project>
