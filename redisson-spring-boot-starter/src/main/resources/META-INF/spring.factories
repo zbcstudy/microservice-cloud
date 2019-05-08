@@ -1,3 +1,1 @@
-
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.wondertek.springcloud.redisson.autoconfigure.JobParserAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.wondertek.springcloud.redisson.configuration.RedissonConfiguration

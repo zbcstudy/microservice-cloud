@@ -2,7 +2,6 @@ package com.wondertek.springcloud.redisson.properties;
 
 import com.wondertek.springcloud.redisson.enums.LockModel;
 import com.wondertek.springcloud.redisson.enums.Model;
-import org.redisson.config.SingleServerConfig;
 import org.redisson.config.SslProvider;
 import org.redisson.config.TransportMode;
 import org.springframework.boot.context.properties.ConfigurationProperties;
