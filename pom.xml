@@ -130,6 +130,7 @@
 		<module>zipkin-server-9000</module>
 		<module>jwt-spring-security-6000</module>
 		<module>microservicecloud-sample-test</module>
+		<module>redisson-spring-boot-starter</module>
     </modules>
 
 </project>
